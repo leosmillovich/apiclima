@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+body,
+h2,
+p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+    --dark-primary: #0288D1;
+    --ligth-primary: #B3E5FC;
+    --primary: #03A9F4;
+    --text: #FFFFFF;
+    --accent: #FFEB3B;
+    --primary-text: #212121;
+    --secondary-text: #757575;
+    --divider: #BDBDBD;
+
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-primary);
+    height: 50px;
+}
+
+header img {
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+}
+
+header h3 {
+    color: var(--text);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--ligth-primary);
+    border: solid 1px var(--primary-text);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 5px 10px var(--divider);
+    color: var(--primary-text);
+}
+
+.card img {
+    height: 60px;
+    width: 60px;
+    padding: 5px;
+}
+
+.buscador {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+input[type=text] {
+    box-sizing: border-box;
+    width: 300px;
+    height: 40px;
+    margin-top: 40px;
+    border-radius: 1px;
+    background-image: url('/image/pin-de-ubicacion.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 10px 20px 5px 40px;
+    border: none;
+    border-bottom: solid 3px var(--secondary-text);
+    border-left: solid 2px var(--secondary-text);
+    border-radius: 4px;
+    box-shadow: 10px 10px 10px var(--divider);
+    font-size: 15px;
+    transition: 0.5s ease;
+}
+
+input[type=text]:focus {
+    box-shadow: 10px 10px 10px var(--primary);
+    border: solid 2px var(--divider);
+    width: 400px;
+}
