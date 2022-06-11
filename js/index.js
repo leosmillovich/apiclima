@@ -1,29 +1,35 @@
-document.addEventListener('DOMContentLoaded', consultarAPI);//apenas abre la pagina hace una llamada a la api
+// selectores
 const principal = document.querySelector('.principal');
+const bienvenida = document.querySelector('.bienvenida')
+//Formulario
 const input = document.getElementById('input');
-const form = document.getElementById('form');
+const formulario = document.getElementById('form');
 
-form.addEventListener('submit', () => {
-    let valor = input.value
-    return console.log(valor);
-})
+//Escuchar el submit del formulario para llamar la api
+formulario.addEventListener('submit', consultarAPI)
 
+//Llamar a la api con el input del forulario
+function consultarAPI(e) {
+    e.preventDefault()
+    let ciudad = input.value;//Ciudad ingresada
 
-function consultarAPI() {
-
-    const API_KEY = "ce21306042feaaae8711def9ee5c6e53"
-
-    let ciudad = "lozada";
-
+    const API_KEY = "ce21306042feaaae8711def9ee5c6e53";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},{AR}&appid=${API_KEY}`
 
     fetch(url)
         .then(response => response.json())
-        .then(data => imprimirHTML(data))
+        .then(data => imprimirHTML(data));
 
+    //resetea el form
+    limpiarFormulario()
+    //Quitamos el cartel de bienenido
+    bienvenida.remove()
 }
 
 
+function limpiarFormulario() {
+    formulario.reset()
+}
 
 function imprimirHTML(datos) {
 

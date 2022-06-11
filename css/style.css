@@ -73,6 +73,7 @@ main {
 form {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 input[type=text] {
@@ -80,7 +81,6 @@ input[type=text] {
     width: 300px;
     height: 40px;
     margin-top: 40px;
-    border-radius: 1px;
     background-image: url('/image/pin-de-ubicacion.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -98,4 +98,25 @@ input[type=text]:focus {
     box-shadow: 10px 10px 10px var(--primary);
     border: solid 2px var(--divider);
     width: 400px;
+    margin-right: 20px;
+}
+
+#button {
+    height: 40px;
+    margin-top: 40px;
+    margin-left: -10px;
+    border-bottom: solid 3px var(--secondary-text);
+    border-right: solid 2px var(--secondary-text);
+    border-radius: 4px 4px 4px 0;
+    box-shadow: 10px 10px 10px var(--divider);
+    font-size: 15px;
+    background-color: var(--text);
+    border-left: none;
+    border-top: none;
+}
+
+
+#button:hover {
+    box-shadow: 10px 10px 10px var(--primary);
+    border: solid 1px var(--divider);
 }
