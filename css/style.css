@@ -46,7 +46,8 @@ main {
 }
 
 
-.card {
+.card,
+.bienvenida {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -119,4 +120,8 @@ input[type=text]:focus {
 #button:hover {
     box-shadow: 10px 10px 10px var(--primary);
     border: solid 1px var(--divider);
+}
+
+.bienvenida {
+    color: var(--secondary-text);
 }

@@ -1,6 +1,8 @@
 // selectores
 const principal = document.querySelector('.principal');
-const bienvenida = document.querySelector('.bienvenida')
+const bienvenida = document.querySelector('.bienvenida');
+const spinner = document.querySelector('.spinner');
+
 //Formulario
 const input = document.getElementById('input');
 const formulario = document.getElementById('form');
@@ -10,7 +12,8 @@ formulario.addEventListener('submit', consultarAPI)
 
 //Llamar a la api con el input del forulario
 function consultarAPI(e) {
-    e.preventDefault()
+    e.preventDefault();
+
     let ciudad = input.value;//Ciudad ingresada
 
     const API_KEY = "ce21306042feaaae8711def9ee5c6e53";
@@ -18,18 +21,24 @@ function consultarAPI(e) {
 
     fetch(url)
         .then(response => response.json())
-        .then(data => imprimirHTML(data));
+        .then(data => {
 
-    //resetea el form
-    limpiarFormulario()
-    //Quitamos el cartel de bienenido
-    bienvenida.remove()
-}
+            if (data.cod === "404") {
+                alert("Ciudad no encontrada");
+                location.reload()
+            }
 
+            imprimirHTML(data)
+        })
 
-function limpiarFormulario() {
+    //Quitamos el cartel de bienenido Y reseteamos el form
+    limipiarHTML()
     formulario.reset()
-}
+};
+
+
+
+
 
 function imprimirHTML(datos) {
 
@@ -53,5 +62,12 @@ function imprimirHTML(datos) {
         `
     principal.innerHTML = html;
 }
+
+function limipiarHTML() {
+    while (principal.firstChild) {
+        principal.removeChild(principal.firstChild);
+    }
+}
+
 
 const kelvinACentigrados = grados => (grados - 273.15).toFixed(1);
