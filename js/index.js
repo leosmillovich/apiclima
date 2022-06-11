@@ -52,7 +52,7 @@ function imprimirHTML(datos) {
 
     html += `
         <div class="card">
-        <img src="/image/clima.png" alt="">
+        <img src="image/clima.png" alt="">
         <h2>${name}</h2>
         <h1>${temperatura}°c</h1>
         <p>Humedad: ${humidity}%</p>
